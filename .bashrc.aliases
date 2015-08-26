@@ -1,0 +1,79 @@
+alias clups='ps ufp `pgrep -d " " -G clusers`'
+alias curdate='LANG=C date "+%a %b %d %Y"'
+#alias nocomments="grep -vE '^[[:space:]]*(#|;|//|\"|$)'"
+#alias nocommentss="sudo grep -vE '^[[:space:]]*(#|;|$)'"
+LESS=-FR
+# TODO: check on Ubuntu
+[ -f /etc/debian_version ] && LESS="${LESS} -X"
+export LESS
+nocomments () {
+#	set -x
+	local nocomments_cmd='grep -vE ^[[:space:]]*(#|;|\/\/|\"|$)'
+	if [ -f "$1" ]; then
+		[ -r "$1" ] || nocomments_cmd="sudo ${nocomments_cmd}"
+		${nocomments_cmd} "$1" | less
+	else
+		echo "Cannot read ${1} (insuffisient rights?)" >&2
+	fi
+}
+
+alias qdn2dc="hostname -d | sed 's/^/dc=/ ; s/\./,dc=/g'"
+alias sedit="EDITOR=$EDITOR sudoedit"
+alias suldapadd='ldapadd -D '\''uid=root,ou=People,dc=clust,dc=vsu,dc=ru'\'''
+alias suldapvi='ldapvi -D '\''uid=root,ou=People,dc=clust,dc=vsu,dc=ru'\'''
+alias vimless=/usr/share/vim/vim74/macros/less.sh
+alias rts="gvim --remote-tab-silent"
+# yum
+if [ -r ~/.bashrc.yum ]; then
+	. ~/.bashrc.yum
+fi
+
+alias isvirt="grep -E --color=always '(vmx|svm)' /proc/cpuinfo"
+
+#export GREP_OPTIONS="--color=auto"
+alias grep="grep --color=auto"
+which vim > /dev/null 2>&1 && export EDITOR=vim
+
+alias hdt="nc < /dev/null localhost 7634 | sed 's/||/|\n|/g;s/$/\n/'"
+
+# RDP
+if [[ $(hostname) =~ vmo ]]
+then
+	alias proxyrdp="env LANG=C xfreerdp -T proxy -0 -a 16 -u admin -p 221628 -k en-us -g 1152x864 --plugin cliprdr proxy & disown"
+	alias srv-sqlrdp="env LANG=C xfreerdp -T srv-sql -0 -a 16 -u admin -p 221628 -k en-us -g 1152x864 --plugin cliprdr srv-sql & disown"
+	alias vodmashrdp="env LANG=C xfreerdp -T 192.168.0.109 -0 -a 16 -d vodmash -u Администратор -p '!quarter_vodmash' -k en-us -g 1152x864 --plugin cliprdr --plugin rdpdr --data disk:distrib:/media/8050537150536D42/distrib -- 192.168.0.109 & disown"
+	alias sbkrdp="env LANG=C xfreerdp -T sbk -0 -a 16 -d sbk -u Administrator -p '!quarter_sbk' -k en-us -g 1152x864 --plugin cliprdr --plugin rdpdr --data disk:distrib:/media/8050537150536D42/distrib -- sbk & disown"
+	alias vmo-opr-prnrdp="env LANG=C xfreerdp -T vmo-opr-prn -0 -a 16 -u admin -p vmo -k en-us -g 1152x864 --plugin cliprdr vmo-opr-prn & disown"
+
+	alias distrmount="gvfs-mount 'smb://fs/distr'"
+	alias xchgmount="gvfs-mount 'smb://fs/xchg'"
+	alias workmount="gvfs-mount 'smb://proxy/work$'"
+fi
+
+mprandom() {
+#	local filedate
+	echo $@
+	while getopts ":d:Dx:" Option
+	do
+		echo "Option is ${Option}, OPTARG is ${OPTARG}, OPTIND is ${OPTIND}"
+		case $Option in
+			d) filedate="${OPTARG}" ;;
+			D) filedate=$(date +%F) ;;
+			x) extra_options="${OPTARG}" ;;
+			\:)
+				echo "Option -${OPTARG} requires an argument, aborting" >&2
+				return 1
+			;;
+			*)
+				echo "Unknown option -${OPTARG}, aborting" >&2
+				return 1
+			;;
+		esac
+	done
+
+	shift $(($OPTIND - 1))
+
+	[ -n "${filedate}" ] && echo "Set file date to \"${filedate}\""
+	find "${1:-.}" \! -name mplayer.conf -type f -printf '%CY-%Cm-%Cd\t%p\n' | awk -F '\t' '$1 ~ /'"${filedate}"'/ { print($2) }' | shuf -n 1 | tee /dev/stderr | mplayer -playlist - -really-quiet ${extra_options}
+	unset filedate
+}

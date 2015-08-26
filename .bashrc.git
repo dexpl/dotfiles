@@ -1,0 +1,10 @@
+# https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+if which git > /dev/null 2>&1 ; then
+	GIT_PS1_SHOWUPSTREAM="auto"
+	GIT_PS1_SHOWDIRTYSTATE=1
+	GIT_PS1_SHOWUNTRACKEDFILES=1
+	. ~/bin/git-prompt.sh
+	PS1='┌[ \u@\h:\w \t ]\n└$(__git_ps1 "[ %s ]—")► '
+else
+	PS1='┌[ \u@\h:\w \t ]\n└► '
+fi
