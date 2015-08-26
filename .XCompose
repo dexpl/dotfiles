@@ -1,0 +1,145 @@
+# Added by Alexander Sapozhnikov
+# http://shoorick.ru/
+# shoorick@mail.ru
+# 14.09.2010
+
+# Cyrillic
+
+# Old (pre-1917) russian:
+<Multi_key> <minus> <Cyrillic_SOFTSIGN>         : "Ҍ"   U0462 # CYRILLIC CAPITAL LETTER YAT
+<Multi_key> <minus> <Cyrillic_softsign>         : "ѣ"   U0463 # CYRILLIC SMALL LETTER YAT
+<Multi_key> <minus> <Cyrillic_O>                : "Ѳ"   U0472 # CYRILLIC CAPITAL LETTER FITA
+<Multi_key> <minus> <Cyrillic_o>                : "ѳ"   U0473 # CYRILLIC SMALL LETTER FITA
+<Multi_key> <Cyrillic_SOFTSIGN> <minus>         : "Ҍ"   U0462 # CYRILLIC CAPITAL LETTER YAT
+<Multi_key> <Cyrillic_softsign> <minus>         : "ѣ"   U0463 # CYRILLIC SMALL LETTER YAT
+<Multi_key> <Cyrillic_O> <minus>                : "Ѳ"   U0472 # CYRILLIC CAPITAL LETTER FITA
+<Multi_key> <Cyrillic_o> <minus>                : "ѳ"   U0473 # CYRILLIC SMALL LETTER FITA
+<Multi_key> <Cyrillic_EF> <Cyrillic_EF>         : "Ѳ"   U0472 # CYRILLIC CAPITAL LETTER FITA
+<Multi_key> <Cyrillic_ef> <Cyrillic_ef>         : "ѳ"   U0473 # CYRILLIC SMALL LETTER FITA
+<Multi_key> <Cyrillic_I>  <Cyrillic_I>          : "І"   U0406 # CYRILLIC CAPITAL LETTER I decimal
+<Multi_key> <Cyrillic_i>  <Cyrillic_i>          : "і"   U0456 # CYRILLIC SMALL LETTER I decimal
+<Multi_key> <Cyrillic_I>  <Cyrillic_EM>         : "Ѵ"   U0474 # CYRILLIC CAPITAL LETTER IZHITSA
+<Multi_key> <Cyrillic_i>  <Cyrillic_em>         : "ѵ"   U0475 # CYRILLIC SMALL LETTER IZHITSA
+
+
+# Ukrainian and Byelorussian
+<Multi_key> <Cyrillic_ES> <minus>               : "Є"   U04D8 # CYRILLIC CAPITAL LETTER IE
+<Multi_key> <Cyrillic_es> <minus>               : "є"   U04D8 # CYRILLIC SMALL LETTER IE
+<Multi_key> <Cyrillic_U> <Cyrillic_U>           : "Ў"   U04D8 # CYRILLIC CAPITAL U WITH BREVE
+<Multi_key> <Cyrillic_u> <Cyrillic_u>           : "ў"   U04D8 # CYRILLIC SMALL LETTER U WITH BREVE
+<Multi_key> <Cyrillic_U> <parenleft>            : "Ў"   U04D8 # CYRILLIC CAPITAL U WITH BREVE
+<Multi_key> <Cyrillic_u> <parenleft>            : "ў"   U04D8 # CYRILLIC SMALL LETTER U WITH BREVE
+<Multi_key> <Cyrillic_E>  <Cyrillic_SHA>        : "Ї"   U0407 # CYRILLIC CAPITAL LETTER YI
+<Multi_key> <Cyrillic_E>  <Cyrillic_sha>        : "ї"   U0457 # CYRILLIC SMALL LETTER YI
+<Multi_key> <Cyrillic_E>  <Cyrillic_BE>         : "Ї"   U0407 # CYRILLIC CAPITAL LETTER YI
+<Multi_key> <Cyrillic_E>  <Cyrillic_be>         : "ї"   U0457 # CYRILLIC SMALL LETTER YI
+
+# Serbian
+<Multi_key> <Cyrillic_EL> <Cyrillic_SOFTSIGN>   : "Љ"   U0409 # CYRILLIC CAPITAL LETTER LJE
+<Multi_key> <Cyrillic_EL> <Cyrillic_softsign>   : "Љ"   U0409 # CYRILLIC CAPITAL LETTER LJE
+<Multi_key> <Cyrillic_EN> <Cyrillic_SOFTSIGN>   : "Њ"   U040A # CYRILLIC CAPITAL LETTER NJE
+<Multi_key> <Cyrillic_EN> <Cyrillic_softsign>   : "Њ"   U040A # CYRILLIC CAPITAL LETTER NJE
+<Multi_key> <Cyrillic_el> <Cyrillic_softsign>   : "љ"   U0459 # CYRILLIC SMALL LETTER LJE
+<Multi_key> <Cyrillic_en> <Cyrillic_softsign>   : "њ"   U045A # CYRILLIC SMALL LETTER NJE
+
+# Bashkir, Tatar, Kazakh
+<Multi_key> <Cyrillic_IE> <Cyrillic_IE>         : "Ә"   U04D8 # CYRILLIC CAPITAL LETTER SCHWA
+<Multi_key> <Cyrillic_ie> <Cyrillic_ie>         : "ә"   U04D9 # CYRILLIC SMALL LETTER SCHWA
+<Multi_key> <Cyrillic_CHE> <Cyrillic_CHE>       : "Һ"   U04BA # CYRILLIC CAPITAL LETTER SHHA
+<Multi_key> <Cyrillic_che> <Cyrillic_che>       : "һ"   U04BB # CYRILLIC SMALL LETTER SHHA
+# Usual order: diacritics then letter
+<Multi_key> <minus> <Z>                         : "Ƶ"   U01B5 # LATIN CAPITAL LETTER Z WITH STROKE
+<Multi_key> <minus> <z>                         : "ƶ"   U01B6 # LATIN SMALL LETTER Z WITH STROKE
+<Multi_key> <minus> <O>                         : "Ɵ"   U019F # LATIN CAPITAL LETTER BARRED O
+<Multi_key> <minus> <o>                         : "ɵ"   U0275 # LATIN SMALL LETTER BARRED O
+<Multi_key> <minus>             <Cyrillic_GHE>  : "Ғ"   U0462 # CYRILLIC CAPITAL LETTER GHE WITH STROKE
+<Multi_key> <minus>             <Cyrillic_ghe>  : "ғ"   U0463 # CYRILLIC SMALL LETTER GHE WITH STROKE
+<Multi_key> <comma>             <Cyrillic_ZHE>  : "Җ"   U0496 # CYRILLIC CAPITAL LETTER ZHE WITH DESCENDER
+<Multi_key> <comma>             <Cyrillic_zhe>  : "җ"   U0497 # CYRILLIC SMALL LETTER ZHE WITH DESCENDER
+<Multi_key> <comma>             <Cyrillic_ZE>   : "Ҙ"   U0498 # CYRILLIC CAPITAL LETTER ZE WITH DESCENDER
+<Multi_key> <comma>             <Cyrillic_ze>   : "ҙ"   U0499 # CYRILLIC SMALL LETTER ZE WITH DESCENDER
+<Multi_key> <comma>             <Cyrillic_KA>   : "Қ"   U049A # CYRILLIC CAPITAL LETTER KA WITH DESCENDER
+<Multi_key> <comma>             <Cyrillic_ka>   : "қ"   U049B # CYRILLIC SMALL LETTER KA WITH DESCENDER
+<Multi_key> <Cyrillic_HARDSIGN> <Cyrillic_KA>   : "Ҡ"   U04A0 # CYRILLIC CAPITAL LETTER BASHKIR KA
+<Multi_key> <Cyrillic_hardsign> <Cyrillic_KA>   : "Ҡ"   U04A0 # CYRILLIC CAPITAL LETTER BASHKIR KA
+<Multi_key> <Cyrillic_hardsign> <Cyrillic_ka>   : "ҡ"   U04A1 # CYRILLIC SMALL LETTER BASHKIR KA
+<Multi_key> <comma>             <Cyrillic_EN>   : "Ң"   U04A2 # CYRILLIC CAPITAL LETTER EN WITH DESCENDER
+<Multi_key> <comma>             <Cyrillic_en>   : "ң"   U04A3 # CYRILLIC SMALL LETTER EN WITH DESCENDER
+<Multi_key> <comma>             <Cyrillic_ES>   : "Ҫ"   U04AA # CYRILLIC CAPITAL LETTER ES WITH DESCENDER
+<Multi_key> <comma>             <Cyrillic_es>   : "ҫ"   U04AB # CYRILLIC SMALL LETTER ES WITH DESCENDER
+<Multi_key> <backslash>         <Cyrillic_U>    : "Ү"   U04AE # CYRILLIC CAPITAL LETTER STRAIGHT U
+<Multi_key> <slash>             <Cyrillic_U>    : "Ү"   U04AE # CYRILLIC CAPITAL LETTER STRAIGHT U
+<Multi_key> <backslash>         <Cyrillic_u>    : "ү"   U04AF # CYRILLIC SMALL LETTER STRAIGHT U
+<Multi_key> <minus>             <Cyrillic_U>    : "Ұ"   U04B0 # CYRILLIC CAPITAL LETTER STRAIGT U WITH STROKE
+<Multi_key> <minus>             <Cyrillic_u>    : "ұ"   U04B1 # CYRILLIC SMALL LETTER STRAIGT U WITH STROKE
+<Multi_key> <underscore>        <Cyrillic_O>    : "Ө"   U04E8 # CYRILLIC CAPITAL LETTER BARRED O
+<Multi_key> <underscore>        <Cyrillic_o>    : "ө"   U04E9 # CYRILLIC SMALL LETTER BARRED O
+# Reverse order: letter then diacritics
+<Multi_key> <Z> <minus>                         : "Ƶ"   U01B5 # LATIN CAPITAL LETTER Z WITH STROKE
+<Multi_key> <z> <minus>                         : "ƶ"   U01B6 # LATIN SMALL LETTER Z WITH STROKE
+<Multi_key> <O> <minus>                         : "Ɵ"   U019F # LATIN CAPITAL LETTER BARRED O
+<Multi_key> <o> <minus>                         : "ɵ"   U0275 # LATIN SMALL LETTER BARRED O
+<Multi_key> <Cyrillic_GHE> <minus>              : "Ғ"   U0462 # CYRILLIC CAPITAL LETTER GHE WITH STROKE
+<Multi_key> <Cyrillic_ghe> <minus>              : "ғ"   U0463 # CYRILLIC SMALL LETTER GHE WITH STROKE
+<Multi_key> <Cyrillic_ZHE> <comma>              : "Җ"   U0496 # CYRILLIC CAPITAL LETTER ZHE WITH DESCENDER
+<Multi_key> <Cyrillic_zhe> <comma>              : "җ"   U0497 # CYRILLIC SMALL LETTER ZHE WITH DESCENDER
+<Multi_key> <Cyrillic_ZE>  <comma>              : "Ҙ"   U0498 # CYRILLIC CAPITAL LETTER ZE WITH DESCENDER
+<Multi_key> <Cyrillic_ze>  <comma>              : "ҙ"   U0499 # CYRILLIC SMALL LETTER ZE WITH DESCENDER
+<Multi_key> <Cyrillic_KA>  <comma>              : "Қ"   U049A # CYRILLIC CAPITAL LETTER KA WITH DESCENDER
+<Multi_key> <Cyrillic_ka>  <comma>              : "қ"   U049B # CYRILLIC SMALL LETTER KA WITH DESCENDER
+<Multi_key> <Cyrillic_KA>  <Cyrillic_HARDSIGN>  : "Ҡ"   U04A0 # CYRILLIC CAPITAL LETTER BASHKIR KA
+<Multi_key> <Cyrillic_KA>  <Cyrillic_hardsign>  : "Ҡ"   U04A0 # CYRILLIC CAPITAL LETTER BASHKIR KA
+<Multi_key> <Cyrillic_ka>  <Cyrillic_hardsign>  : "ҡ"   U04A1 # CYRILLIC SMALL LETTER BASHKIR KA
+<Multi_key> <Cyrillic_EN>  <comma>              : "Ң"   U04A2 # CYRILLIC CAPITAL LETTER EN WITH DESCENDER
+<Multi_key> <Cyrillic_en>  <comma>              : "ң"   U04A3 # CYRILLIC SMALL LETTER EN WITH DESCENDER
+<Multi_key> <Cyrillic_ES>  <comma>              : "Ҫ"   U04AA # CYRILLIC CAPITAL LETTER ES WITH DESCENDER
+<Multi_key> <Cyrillic_es>  <comma>              : "ҫ"   U04AB # CYRILLIC SMALL LETTER ES WITH DESCENDER
+<Multi_key> <Cyrillic_U>   <backslash>          : "Ү"   U04AE # CYRILLIC CAPITAL LETTER STRAIGHT U
+<Multi_key> <Cyrillic_U>   <slash>              : "Ү"   U04AE # CYRILLIC CAPITAL LETTER STRAIGHT U
+<Multi_key> <Cyrillic_u>   <backslash>          : "ү"   U04AF # CYRILLIC SMALL LETTER STRAIGHT U
+<Multi_key> <Cyrillic_u>   <slash>              : "ү"   U04AF # CYRILLIC SMALL LETTER STRAIGHT U
+<Multi_key> <Cyrillic_U>   <minus>              : "Ұ"   U04B0 # CYRILLIC CAPITAL LETTER STRAIGHT U WITH STROKE
+<Multi_key> <Cyrillic_u>   <minus>              : "ұ"   U04B1 # CYRILLIC SMALL LETTER STRAIGHT U WITH STROKE
+<Multi_key> <Cyrillic_O>   <underscore>         : "Ө"   U04E8 # CYRILLIC CAPITAL LETTER BARRED O
+<Multi_key> <Cyrillic_o>   <underscore>         : "ө"   U04E9 # CYRILLIC SMALL LETTER BARRED O
+
+# Punctuation
+<Multi_key> <Cyrillic_BE> <Cyrillic_BE>         : "«"   guillemotleft # LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
+<Multi_key> <Cyrillic_YU> <Cyrillic_YU>         : "»"   guillemotright # RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+<Multi_key> <period> <colon>                    : "…"   ellipsis # ELLIPSIS
+
+
+# Arrows
+# Simple
+<Multi_key> <less> <minus>              : "←" U2190 # LEFTWARDS ARROW
+<Multi_key> <bar> <asciicircum>         : "↑" U2191 # UPWARDS ARROW
+<Multi_key> <minus> <greater>           : "→" U2192 # RIGHTWARDS ARROW
+<Multi_key> <bar> <v>                   : "↓" U2193 # DOWNWARDS ARROW
+<Multi_key> <less> <greater> <minus>    : "↔" U2194 # LEFT RIGHT ARROW
+<Multi_key> <minus> <less> <greater>    : "↔" U2194 # LEFT RIGHT ARROW
+<Multi_key> <bar> <v> <asciicircum>     : "↕" U2195 # UP DOWN ARROW
+<Multi_key> <bar> <asciicircum> <v>     : "↕" U2195 # UP DOWN ARROW
+<Multi_key> <backslash> <asciicircum>   : "↖" U2196 # NORTH WEST ARROW
+<Multi_key> <slash> <asciicircum>       : "↗" U2197 # NORTH EAST ARROW
+<Multi_key> <backslash> <v>             : "↘" U2198 # SOUTH EAST ARROW
+<Multi_key> <slash> <v>                 : "↙" U2199 # SOUTH WEST ARROW
+
+# Double
+<Multi_key> <less> <equal>              : "⇐" U21D0 # LEFTWARDS DOUBLE ARROW
+<Multi_key> <bar> <bar> <asciicircum>       : "⇑" U21D1 # UPWARDS DOUBLE ARROW
+<Multi_key> <equal> <greater>   : "⇒" U21D2 # RIGHTWARDS DOUBLE ARROW
+<Multi_key> <bar> <bar> <v>                     : "⇓" U21D3 # DOWNWARDS DOUBLE ARROW
+<Multi_key> <less> <greater> <equal>    : "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <equal> <less> <greater>    : "⇔" U21D4 # LEFT RIGHT DOUBLE ARROW
+
+# Arrows by arrow keys
+<Multi_key> <LEFT> <LEFT>               : "←" U2190 # LEFTWARDS ARROW
+<Multi_key> <LEFT> <2>                  : "⇐" U21D0 # LEFTWARDS DOUBLE ARROW
+<Multi_key> <LEFT> <RGHT>               : "↔" U2194 # LEFT RIGHT ARROW
+
+# Math
+<Multi_key> <equal> <slash>     : "≠"   U2260 # NOT EQUAL TO
+<Multi_key> <slash> <equal>     : "≠"   U2260 # NOT EQUAL TO
+<Multi_key> <minus> <equal>     : "≡"   U2261 # IDENTICAL TO
+<Multi_key> <equal> <minus>     : "≡"   U2261 # IDENTICAL TO
+
