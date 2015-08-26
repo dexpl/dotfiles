@@ -1,0 +1,5 @@
+[user]
+	name = Vadim Raskhozhev
+	email = iamdexpl@gmail.com
+[alias]
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
