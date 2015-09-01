@@ -50,3 +50,7 @@ else
 		" colorscheme murphy
 	" endif
 endif
+
+if !has('gui_running')
+	set paste
+endif
