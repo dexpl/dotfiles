@@ -9,12 +9,11 @@ export LESS
 nocomments () {
 #	set -x
 	local nocomments_cmd='grep -vE ^[[:space:]]*(#|;|\/\/|\"|$)'
-	if [ -f "$1" ]; then
+	if [ -n "$1" ]; then
+		nocomments_cmd="${nocomments_cmd} ${1}"
 		[ -r "$1" ] || nocomments_cmd="sudo ${nocomments_cmd}"
-		${nocomments_cmd} "$1" | less
-	else
-		echo "Cannot read ${1} (insuffisient rights?)" >&2
 	fi
+		${nocomments_cmd} | less
 }
 
 alias qdn2dc="hostname -d | sed 's/^/dc=/ ; s/\./,dc=/g'"
