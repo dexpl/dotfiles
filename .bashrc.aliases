@@ -51,26 +51,28 @@ fi
 
 mprandom() {
 #	local filedate
-	echo $@
-	while getopts ":d:Dx:" Option
-	do
-		echo "Option is ${Option}, OPTARG is ${OPTARG}, OPTIND is ${OPTIND}"
-		case $Option in
-			d) filedate="${OPTARG}" ;;
-			D) filedate=$(date +%F) ;;
-			x) extra_options="${OPTARG}" ;;
-			\:)
-				echo "Option -${OPTARG} requires an argument, aborting" >&2
-				return 1
-			;;
-			*)
-				echo "Unknown option -${OPTARG}, aborting" >&2
-				return 1
-			;;
-		esac
-	done
+	if [ $# -gt 1 ]
+	then
+		while getopts ":d:Dx:" Option
+		do
+			# echo "Option is ${Option}, OPTARG is ${OPTARG}, OPTIND is ${OPTIND}"
+			case $Option in
+				d) filedate="${OPTARG}" ;;
+				D) filedate=$(date +%F) ;;
+				x) extra_options="${OPTARG}" ;;
+				\:)
+					echo "Option -${OPTARG} requires an argument, aborting" >&2
+					return 1
+				;;
+				*)
+					echo "Unknown option -${OPTARG}, aborting" >&2
+					return 1
+				;;
+			esac
+		done
 
-	shift $(($OPTIND - 1))
+		shift $(($OPTIND - 1))
+	fi
 
 	[ -n "${filedate}" ] && echo "Set file date to \"${filedate}\""
 	find "${1:-.}" \! -name mplayer.conf -type f -printf '%CY-%Cm-%Cd\t%p\n' | awk -F '\t' '$1 ~ /'"${filedate}"'/ { print($2) }' | shuf -n 1 | tee /dev/stderr | mplayer -playlist - -really-quiet ${extra_options}
