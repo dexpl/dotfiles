@@ -46,9 +46,9 @@ else
 	" Non-GUI (terminal) colors
 	colorscheme elflord
 	"colorscheme elflord
-	" if &diff
-		" colorscheme murphy
-	" endif
+	if &diff
+		colorscheme murphy
+	endif
 endif
 
 if !has('gui_running')
