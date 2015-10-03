@@ -1,0 +1,9 @@
+_currentcover() {
+	local artist="$(mpc -f %albumartist% -q current)"
+	local album="$(mpc -f %album% -q current)"
+	local cache=~/.cache/gmpc/metadata/"${artist}"/"${album}.jpg"
+
+	pushd /var/lib/mpd/music/"$(dirname "$(mpc -f %file% current)")" || exit $?
+	[ -n "${artist}" -a -n "${album}" ] && glyrc cover -a "${artist}" -b "${album}" -v 1 -w ':type:.:format:'
+	[ -f "${cache}" ] && mv "${cache}" .
+}
