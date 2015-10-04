@@ -14,4 +14,4 @@ hardstatus alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
 
 # Environment
 #setenv SSH_AUTH_SOCK $SSH_AUTH_SOCK
-
+shell -$SHELL
