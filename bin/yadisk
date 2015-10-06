@@ -1,0 +1,26 @@
+#!/bin/sh
+
+#set -x
+
+# Просто и примитивно монтируем webdav.yandex.ru в ~/media/webdav.yandex.ru с
+# помощью wdfs (http://noedler.de/projekte/wdfs/). Либо, будучи вызваны с
+# параметром -u, отмонтируем.
+
+# Exit immediately if a pipeline (which may consist of a single simple command),
+# a subshell command enclosed in parentheses, or one of the commands executed as
+# part of a command list enclosed by braces (see SHELL GRAMMAR above) exits with
+# a non-zero status.
+set -e
+
+yadisk_host=webdav.yandex.ru
+yadisk_login=$USER
+yadisk_url=https://${yadisk_login}@${yadisk_host}
+yadisk_mountpoint=~/media/${yadisk_host}
+
+if [ "x$1" = "x-u" ]; then
+	fusermount -uz ${yadisk_mountpoint}
+else
+	[ -d ${yadisk_mountpoint} ] || mkdir -p ${yadisk_mountpoint}
+	grep -F ${yadisk_url} /proc/mounts && exit
+	wdfs -o username=${yadisk_login} ${yadisk_url} ${yadisk_mountpoint}
+fi

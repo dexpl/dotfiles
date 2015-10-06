@@ -1,0 +1,21 @@
+#!/bin/sh
+
+[ $# -eq 0 ] && {
+  echo "usage: $0 [user@]host:[/path]" >&2
+  exit 1
+}
+
+MOUNTER=${MOUNTER:-sshfs}
+
+which $MOUNTER 2>&1 > /dev/null || {
+  echo "$MOUNTER program is required but not found" >&2
+  exit 2
+}
+
+SSHFSNAME=$1
+MOUNTDIR=${MOUNTDIR:-~/media}
+MOUNTPOINT="${MOUNTDIR}/${SSHFSNAME%:*}" # user@host:/path → ~/media/user@host
+[ -d "${MOUNTPOINT}" ] || mkdir "${MOUNTPOINT}" || exit $?
+
+# TODO check to see whether fuse.conf permits allow_other
+$MOUNTER "$SSHFSNAME" "$MOUNTPOINT" -o allow_other
