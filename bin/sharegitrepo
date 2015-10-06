@@ -17,5 +17,5 @@ repoName=$1
 set -e
 [ -d "${localRepoDir}" ] || mkdir "${localRepoDir}"
 git clone ssh://${USER}@${remoteRepoHost}/${remoteRepoDir}/${repoName}.git ${localRepoDir}/${repoName}
-cd ${localRepoDir}/${repoName}
+#cd ${localRepoDir}/${repoName}
 
