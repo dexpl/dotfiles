@@ -1,0 +1,21 @@
+#!/bin/sh
+
+remoteRepoHost=srv1.goldenisland.cc
+remoteRepoDir=/srv/gitrepos
+localRepoDir=~/projects
+
+repoName=$1
+
+[ "$(hostname -f)" == "${remoteRepoHost}" ] && {
+	exec >&2
+	echo "This host is your remote repo host (${remoteRepoHost})"
+	echo Making bare repos for further share is not supported yet
+	echo You probably want to git clone --bare ssh://${USER}@homepc/~/projects/${repoName} ${remoteRepoDir}/${repoName}.git
+	exit 1
+}
+
+set -e
+[ -d "${localRepoDir}" ] || mkdir "${localRepoDir}"
+git clone ssh://${USER}@${remoteRepoHost}/${remoteRepoDir}/${repoName}.git ${localRepoDir}/${repoName}
+cd ${localRepoDir}/${repoName}
+
