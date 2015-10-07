@@ -40,10 +40,11 @@ au FileType spec setlocal tabstop=8 shiftwidth=8 expandtab
 au FileType php setlocal tabstop=4 shiftwidth=4 expandtab
 
 " http://stackoverflow.com/a/9835999
+colorscheme dawn
 if has('gui_running')
 	" GUI colors
 	"colorscheme default
-	colorscheme morning
+	"colorscheme morning
 else
 	" Non-GUI (terminal) colors
 	colorscheme elflord
