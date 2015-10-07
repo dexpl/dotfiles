@@ -56,3 +56,10 @@ endif
 if !has('gui_running')
 	set paste
 endif
+
+set guioptions-=b
+set guioptions-=l
+set guioptions-=v
+set guioptions-=m
+set guioptions-=r
+set guioptions-=T
