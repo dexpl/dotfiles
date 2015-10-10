@@ -5,6 +5,10 @@ remoteRepoDir=/srv/gitrepos
 localRepoDir=${HOME}/projects
 
 repoName=$1
+[ -z "${repoName}" ] && {
+	echo "Missing repo name">&2
+	exit 1
+}
 
 [ "$(hostname -f)" == "${remoteRepoHost}" ] && {
 	exec >&2
