@@ -22,4 +22,4 @@ set -e
 [ -d "${localRepoDir}" ] || mkdir "${localRepoDir}"
 git clone ssh://${USER}@${remoteRepoHost}/${remoteRepoDir}/${repoName}.git ${localRepoDir}/${repoName}
 #cd ${localRepoDir}/${repoName}
-
+#git push --set-upstream origin master
