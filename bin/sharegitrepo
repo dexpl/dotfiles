@@ -2,7 +2,7 @@
 
 remoteRepoHost=srv1.goldenisland.cc
 remoteRepoDir=/srv/gitrepos
-localRepoDir=~/projects
+localRepoDir=${HOME}/projects
 
 repoName=$1
 
