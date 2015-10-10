@@ -41,6 +41,7 @@ au FileType php setlocal tabstop=4 shiftwidth=4 expandtab
 
 " http://stackoverflow.com/a/9835999
 colorscheme dawn
+
 if has('gui_running')
 	" GUI colors
 	"colorscheme default
@@ -58,9 +59,11 @@ if !has('gui_running')
 	set paste
 endif
 
-set guioptions-=b
-set guioptions-=l
-set guioptions-=v
-set guioptions-=m
-set guioptions-=r
-set guioptions-=T
+set guioptions=aegit
+
+"set guioptions-=b
+"set guioptions-=l
+"set guioptions-=v
+"set guioptions-=m
+"set guioptions-=r
+"set guioptions-=T
