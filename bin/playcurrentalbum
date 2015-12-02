@@ -5,6 +5,7 @@ currentalbum="$(mpc -f %album% -q current)"
 mpc | grep -e '^\[playing' && mpc crop || mpc clear
 mpc consume on
 mpc random off
+mpc single off
 mpc find album "${currentalbum}" | mpc add
 mpc play
 musicresume
