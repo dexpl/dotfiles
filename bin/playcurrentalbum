@@ -1,6 +1,6 @@
 #!/bin/sh
 
-currentalbum="$(mpc -f %album% -q current)"
+currentalbum="${*:-$(mpc -f %album% -q current)}"
 [ -z "${currentalbum}" ] && exit
 mpc | grep -e '^\[playing' && mpc crop || mpc clear
 mpc consume on
