@@ -1,11 +1,13 @@
 #!/bin/sh
 
 # -a search for artist instead of album
+# -r set 'random on'
 # -z search for albumartist instead of album
-while getopts ":az" Option
+while getopts ":arz" Option
 do
   case $Option in
     a) lookFor=artist ;;
+		r) random=on ;;
     z) lookFor=albumartist ;;
     \:)
       echo "Option -${OPTARG} requires an argument, aborting" >&2
@@ -26,7 +28,7 @@ current="${*:-$(mpc -f %${lookFor}% -q current)}"
 # [ -n "${__DEBUG}" ] && echo ${current} && mpc find ${lookFor} "${current}"  && exit
 mpc | grep -qe '^\[playing' && mpc crop || mpc clear
 mpc consume on
-mpc random off
+mpc random ${random:-off}
 mpc single off
 mpc find ${lookFor} "${current}" | mpc add
 mpc play
