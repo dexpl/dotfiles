@@ -1,11 +1,33 @@
 #!/bin/sh
 
-currentalbum="${*:-$(mpc -f %album% -q current)}"
-[ -z "${currentalbum}" ] && exit
+# -a search for artist instead of album
+# -z search for albumartist instead of album
+while getopts ":az" Option
+do
+  case $Option in
+    a) lookFor=artist ;;
+    z) lookFor=albumartist ;;
+    \:)
+      echo "Option -${OPTARG} requires an argument, aborting" >&2
+      exit 1
+    ;;
+    *)
+      echo "Unknown option -${OPTARG}, aborting" >&2
+      exit 1
+    ;;
+  esac
+done
+
+shift $(($OPTIND - 1))
+
+lookFor=${lookFor:-album}
+current="${*:-$(mpc -f %${lookFor}% -q current)}"
+[ -z "${current}" ] && exit
+# [ -n "${__DEBUG}" ] && echo ${current} && mpc find ${lookFor} "${current}"  && exit
 mpc | grep -qe '^\[playing' && mpc crop || mpc clear
 mpc consume on
 mpc random off
 mpc single off
-mpc find album "${currentalbum}" | mpc add
+mpc find ${lookFor} "${current}" | mpc add
 mpc play
 musicresume
