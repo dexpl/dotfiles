@@ -977,7 +977,7 @@
       <desktop>2</desktop>
     </application>
 -->
-		<application name="pokerth" class="Pokerth">
+		<application name="pokerth" class="Pokerth" type="normal">
 			<position>
 				<x>-0</x>
 				<y>-0</y>
