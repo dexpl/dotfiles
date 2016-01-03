@@ -58,8 +58,8 @@ mprandom() {
 		do
 			# echo "Option is ${Option}, OPTARG is ${OPTARG}, OPTIND is ${OPTIND}"
 			case $Option in
-				d) filedate="${OPTARG}" ;;
-				D) filedate=$(date +%F) ;;
+				d) local filedate="${OPTARG}" ;;
+				D) local filedate=$(date +%F) ;;
 				x) extra_options="${OPTARG}" ;;
 				\:)
 					echo "Option -${OPTARG} requires an argument, aborting" >&2
@@ -76,6 +76,5 @@ mprandom() {
 	fi
 
 	[ -n "${filedate}" ] && echo "Set file date to \"${filedate}\""
-	find "${1:-.}" \! -name mplayer.conf -type f -printf '%CY-%Cm-%Cd\t%p\n' | awk -F '\t' '$1 ~ /'"${filedate}"'/ { print($2) }' | shuf -n 1 | tee /dev/stderr | mplayer -playlist - -really-quiet ${extra_options}
-	unset filedate
+	mplayer -really-quiet ${extra_options} "$(find "${1:-.}" \! -name mplayer.conf -type f -printf '%CY-%Cm-%Cd\t%p\n' | awk -F '\t' '$1 ~ /'"${filedate}"'/ { print($2) }' | shuf -n 1 | tee /dev/stderr)"
 }
