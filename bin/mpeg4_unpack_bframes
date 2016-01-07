@@ -1,0 +1,41 @@
+#!/bin/bash
+
+help_n_quit () {
+	exit
+}
+
+if [ $# -gt 1 ]; then
+	while getopts ":i:o:" Option; do
+		case $Option in
+			i)
+				inputFile="${OPTARG}"
+			;;
+			o)
+				outputFile="${OPTARG}"
+			;;
+			\:)
+				echo "Option -${OPTARG} requires an argument, aborting" 1>&2;
+				exit 1
+			;;
+			*)
+				echo "Unknown option -${OPTARG}, aborting" 1>&2;
+				exit 1
+			;;
+		esac;
+	done;
+	shift $(($OPTIND - 1));
+else
+	help_n_quit
+fi;
+
+set -e
+
+if [ -z "${outputFile}" ]; then
+	outputFile="${inputFile}"
+	outputExt="${outputFile##*.}" # extension
+	inputFile="$(dirname "${outputFile}")/$(basename "${outputFile}" $outputExt)orig.${outputExt}"
+	ln "${outputFile}" "${inputFile}" # due to `set -e` this aborts all the script if ${inputFile} exists 
+	rm "${outputFile}"
+fi
+
+ffmpeg -i "${inputFile}" -codec copy -bsf:v mpeg4_unpack_bframes -map 0 -n "${outputFile}"
