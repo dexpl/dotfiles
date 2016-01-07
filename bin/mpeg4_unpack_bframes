@@ -4,9 +4,10 @@ help_n_quit () {
 	exit
 }
 
-if [ $# -gt 1 ]; then
-	while getopts ":i:o:" Option; do
+if [ $# -gt 0 ]; then
+	while getopts ":di:o:" Option; do
 		case $Option in
+			d) set -x ;;
 			i)
 				inputFile="${OPTARG}"
 			;;
