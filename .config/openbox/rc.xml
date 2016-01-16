@@ -934,9 +934,6 @@
 
   # end of the example
 -->
-    <application name="Mail" class="Thunderbird">
-      <desktop>2</desktop>
-    </application>
     <application class="*">
       <decor>no</decor>
     </application>
@@ -983,5 +980,11 @@
 				<y>-0</y>
 			</position>
 		</application>
+    <application name="Mail" class="Thunderbird">
+      <desktop>2</desktop>
+    </application>
+    <application name="deluge-gtk" class="Deluge">
+      <desktop>4</desktop>
+    </application>
   </applications>
 </openbox_config>
