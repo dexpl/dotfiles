@@ -5,7 +5,8 @@ xsetroot -solid "#e4e4e4" &
 # setxkbmap follows
 which ru_x.sh && ru_x.sh
 
-# Qt cannot into XCompose unless GTK_IM_MODULE=xim is set
+export GTK_IM_MODULE=xim
+# Qt cannot into XCompose unless QT_IM_MODULE=xim is set
 export QT_IM_MODULE=xim
 
 env | sort
