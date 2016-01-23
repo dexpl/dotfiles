@@ -60,7 +60,7 @@ mprandom() {
 			case $Option in
 				d) local filedate="${OPTARG}" ;;
 				D) local filedate=$(date +%F) ;;
-				x) extra_options="${OPTARG}" ;;
+				x) local extra_options="${OPTARG}" ;;
 				\:)
 					echo "Option -${OPTARG} requires an argument, aborting" >&2
 					return 1
