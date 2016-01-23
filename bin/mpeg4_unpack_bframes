@@ -5,7 +5,7 @@ help_n_quit () {
 }
 
 if [ $# -gt 0 ]; then
-	while getopts ":di:o:" Option; do
+	while getopts ":di:o:r" Option; do
 		case $Option in
 			d) set -x ;;
 			i)
@@ -13,6 +13,9 @@ if [ $# -gt 0 ]; then
 			;;
 			o)
 				outputFile="${OPTARG}"
+			;;
+			r)
+				rmInputFile=yes
 			;;
 			\:)
 				echo "Option -${OPTARG} requires an argument, aborting" 1>&2;
@@ -40,3 +43,4 @@ if [ -z "${outputFile}" ]; then
 fi
 
 ffmpeg -i "${inputFile}" -codec copy -bsf:v mpeg4_unpack_bframes -map 0 -n "${outputFile}"
+[ -n "${rmInputFile}" ] && rm "${inputFile}"
