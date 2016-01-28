@@ -326,6 +326,26 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
+    <keybind key="W-Up">
+      <action name="MoveToEdge">
+        <direction>north</direction>
+      </action>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="MoveToEdge">
+        <direction>south</direction>
+      </action>
+    </keybind>
+    <keybind key="W-Left">
+      <action name="MoveToEdge">
+        <direction>west</direction>
+      </action>
+    </keybind>
+    <keybind key="W-Right">
+      <action name="MoveToEdge">
+        <direction>east</direction>
+      </action>
+    </keybind>
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
       <action name="NextWindow"/>
@@ -974,12 +994,12 @@
       <desktop>2</desktop>
     </application>
 -->
-		<application name="pokerth" class="Pokerth" type="normal">
-			<position>
-				<x>-0</x>
-				<y>-0</y>
-			</position>
-		</application>
+    <application name="pokerth" class="Pokerth" type="normal">
+      <position>
+        <x>-0</x>
+        <y>-0</y>
+      </position>
+    </application>
     <application name="Mail" class="Thunderbird">
       <desktop>2</desktop>
     </application>
