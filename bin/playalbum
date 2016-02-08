@@ -1,23 +1,25 @@
 #!/bin/sh
 
 # -a search for artist instead of album
+# -f fuzzy search (i. e. `mpc search`, not `mpc find`)
 # -r set 'random on'
 # -z search for albumartist instead of album
-while getopts ":arz" Option
+while getopts ":afrz" Option
 do
-  case $Option in
-    a) lookFor=artist ;;
+	case $Option in
+		a) lookFor=artist ;;
+		f) find=search ;;
 		r) random=on ;;
-    z) lookFor=albumartist ;;
-    \:)
-      echo "Option -${OPTARG} requires an argument, aborting" >&2
-      exit 1
-    ;;
-    *)
-      echo "Unknown option -${OPTARG}, aborting" >&2
-      exit 1
-    ;;
-  esac
+		z) lookFor=albumartist ;;
+		\:)
+			echo "Option -${OPTARG} requires an argument, aborting" >&2
+			exit 1
+		;;
+		*)
+			echo "Unknown option -${OPTARG}, aborting" >&2
+			exit 1
+		;;
+	esac
 done
 
 shift $(($OPTIND - 1))
@@ -25,11 +27,11 @@ shift $(($OPTIND - 1))
 lookFor=${lookFor:-album}
 current="${*:-$(mpc -f %${lookFor}% -q current)}"
 [ -z "${current}" ] && exit
-# [ -n "${__DEBUG}" ] && echo ${current} && mpc find ${lookFor} "${current}"  && exit
+# [ -n "${__DEBUG}" ] && echo ${current} && mpc find ${lookFor} "${current}"	&& exit
 mpc | grep -qe '^\[playing' && mpc crop || mpc clear
 mpc consume on
 mpc random ${random:-off}
 mpc single off
-mpc find ${lookFor} "${current}" | mpc add
+mpc ${find:-find} ${lookFor} "${current}" | mpc add
 mpc play
 musicresume
