@@ -13,7 +13,7 @@
 set -e
 
 yadisk_host=webdav.yandex.ru
-yadisk_login=$USER
+yadisk_login=${YADISKLOGIN:-$USER}
 yadisk_url=https://${yadisk_login}@${yadisk_host}
 yadisk_mountpoint=~/media/${yadisk_host}
 
