@@ -1,0 +1,17 @@
+#!/bin/bash
+
+_handle_rar () {
+	if [ -n "$(type -t unrar)" ]; then
+		if [ $(unrar lb "$1" | wc -l) -eq 1 ] && [ -n "$(type -t enconv)" ]; then
+			unrar p -c- -inul "$1" | enconv
+		else
+			unrar l "$1"
+		fi
+	else
+		return 1
+	fi
+}
+
+case "$1" in
+*.rar) _handle_rar "$1" ; exit $? ;;
+esac
