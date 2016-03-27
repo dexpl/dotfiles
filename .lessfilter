@@ -1,18 +1,15 @@
 #!/bin/bash
 
-_handle_rar () {
-	if [ -n "$(type -t unrar)" ]; then
-		if [ $(unrar lb "$1" | wc -l) -eq 1 ] && [ -n "$(type -t enconv)" ]; then
-			unrar p -c- -inul "$1" | enconv
-		else
-			unrar l "$1"
-		fi
-	else
-		return 1
-	fi
+_handle_pdf () {
+	pdftotext -nopgbrk "${1}" -
 }
 
-case "$1" in
-*.rar) _handle_rar "$1" ; exit $? ;;
-*) exit 1 ;;
-esac
+_handle_rar () {
+	if [ $(unrar lb "$1" | wc -l) -eq 1 ] && [ -n "$(type -t enconv)" ]; then
+		unrar p -c- -inul "$1" | enconv
+	else
+		unrar l "$1"
+			fi
+}
+
+_handle_${1##*.} "${1}"
