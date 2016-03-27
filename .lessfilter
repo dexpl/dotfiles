@@ -14,4 +14,5 @@ _handle_rar () {
 
 case "$1" in
 *.rar) _handle_rar "$1" ; exit $? ;;
+*) exit 1 ;;
 esac
