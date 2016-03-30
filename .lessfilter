@@ -1,5 +1,13 @@
 #!/bin/bash
 
+_handle_htm () {
+	elinks --dump "${1}"
+}
+
+_handle_html () {
+	_handle_htm "${1}"
+}
+
 _handle_pdf () {
 	pdftotext -nopgbrk "${1}" -
 }
@@ -9,7 +17,7 @@ _handle_rar () {
 		unrar p -c- -inul "$1" | enconv
 	else
 		unrar l "$1"
-			fi
+	fi
 }
 
 _handle_${1##*.} "${1}"
