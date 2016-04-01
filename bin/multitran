@@ -1,0 +1,10 @@
+#!/bin/sh
+
+declare -r en_url='http://www.multitran.ru/c/M.exe?l1=1&l2=2&s='
+
+[ $# -eq 0 ] && {
+	echo Too few arguments >&2
+	exit 1
+}
+
+links --dump --no-numbering --no-references "${en_url}$(echo $@ | sed 's/ /+/g')" | less -F
