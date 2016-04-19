@@ -1,4 +1,4 @@
 if which virsh > /dev/null 2>&1 ; then
-	export VIRSH_DEFAULT_CONNECT_URI=qemu:///system
-	export LIBVIRT_DEFAULT_URI=qemu:///system
+	[ -z ${VIRSH_DEFAULT_CONNECT_URI} ] && export VIRSH_DEFAULT_CONNECT_URI=qemu:///system
+	[ -z ${LIBVIRT_DEFAULT_URI} ] && export LIBVIRT_DEFAULT_URI=qemu:///system
 fi
