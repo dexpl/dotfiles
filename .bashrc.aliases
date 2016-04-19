@@ -2,7 +2,7 @@ alias clups='ps ufp `pgrep -d " " -G clusers`'
 alias curdate='LANG=C date "+%a %b %d %Y"'
 #alias nocomments="grep -vE '^[[:space:]]*(#|;|//|\"|$)'"
 #alias nocommentss="sudo grep -vE '^[[:space:]]*(#|;|$)'"
-export PAGERr=less
+export PAGER=less
 LESS=-FR
 # TODO: check on Ubuntu
 [ -f /etc/debian_version ] && LESS="${LESS} -X"
