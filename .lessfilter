@@ -13,11 +13,15 @@ _handle_pdf () {
 }
 
 _handle_rar () {
-	if [ $(unrar lb "$1" | wc -l) -eq 1 ] && [ -n "$(type -t enconv)" ]; then
-		unrar p -c- -inul "$1" | enconv
+	if [ $(unrar lb "${1}" | wc -l) -eq 1 ] && [ -n "$(type -t enconv)" ]; then
+		unrar p -c- -inul "${1}" | enconv
 	else
-		unrar l "$1"
+		unrar l "${1}"
 	fi
+}
+
+_handle_xls () {
+	xls2csv "${1}"
 }
 
 _handle_${1##*.} "${1}"

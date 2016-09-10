@@ -7,4 +7,5 @@ declare -r en_url='http://www.multitran.ru/c/M.exe?l1=1&l2=2&s='
 	exit 1
 }
 
+echo ${en_url} >&2
 links --dump --no-numbering --no-references "${en_url}$(echo $@ | sed 's/ /+/g')" | less -F
