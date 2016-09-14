@@ -1,0 +1,59 @@
+#!/bin/bash
+
+[ -n "${YTWATCH_DEBUG}" ] && set -x
+
+[ $# -gt 0 ] || {
+	echo Too few arguments >&2
+	exit 1
+}
+
+trap _trap_handler INT TERM EXIT
+
+_trap_handler() {
+	[ -d "${playlistdir}" ] && rm -r "${playlistdir}"
+}
+
+# 1 here means that mpd was _not_ playing
+_was_playing=1
+mpc=$(which mpc 2>&1)
+
+save_volume() {
+	[ -n "${mpc}" ] && export volume=$("${mpc}" volume | awk '{ sub(/%/, "", $2) ; print($2) }')
+}
+
+restore_volume() {
+	[ -n "${volume}" ] && "${mpc}" volume ${volume}
+}
+
+play_pause() {
+	[ -n "${mpc}" ] || return 0
+	if [ $1 -eq 0 ]; then # if we should pause
+# find if mpd plays music
+		"${mpc}" | grep -q '^\[playing\]'
+		_was_playing=$?
+		[ "$_was_playing" -eq 0 ] && "${mpc}" pause
+	else # if we should resume
+# resume only if mpd was playing when screensaver activated
+		[ "$_was_playing" -eq 0 ] && "${mpc}" play
+	fi
+	return 0
+}
+
+playlistdir=$(mktemp -d)
+#mplayes_opts="-fstype stays_on_top"
+mplayes_opts="-really-quiet"
+mplayer="mplayer ${mplayes_opts}"
+media_filenames=""
+
+for url in $@ ; do
+	original_url=${url%%&*}
+# https://github.com/rg3/youtube-dl/issues/7456#issuecomment-155783819
+	read media_url media_filename <<< $(youtube-dl -f best --get-url --get-filename -n "${original_url}")
+	[ -z "${media_url}" -o -z "${media_filename}" ] && continue
+#	wget -ct0 -O "${playlistdir}/${media_filename}" "${media_url}"
+  youtube-dl --continue --output "${playlistdir}/${media_filename}" --retries infinite "${media_url}"
+	media_filenames="${media_filenames}${media_filename}"
+done
+
+[ -z "${media_filenames}" ] && exit 1
+play_pause 0 && save_volume && ${mplayer} ${playlistdir}/* && restore_volume && play_pause 1
