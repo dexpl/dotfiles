@@ -5,7 +5,7 @@ help_n_quit () {
 }
 
 if [ $# -gt 0 ]; then
-	while getopts ":di:o:r" Option; do
+	while getopts ":di:o:pr" Option; do
 		case $Option in
 			d) set -x ;;
 			i)
@@ -13,6 +13,9 @@ if [ $# -gt 0 ]; then
 			;;
 			o)
 				outputFile="${OPTARG}"
+			;;
+			p)
+				playOutputFile=yes
 			;;
 			r)
 				rmInputFile=yes
@@ -44,3 +47,4 @@ fi
 
 ffmpeg -i "${inputFile}" -codec copy -bsf:v mpeg4_unpack_bframes -map 0 -n "${outputFile}"
 [ -n "${rmInputFile}" ] && rm "${inputFile}"
+[ -n "${playOutputFile}" ] && mplayer "${outputFile}"
