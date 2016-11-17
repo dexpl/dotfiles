@@ -51,6 +51,10 @@ fi;
 
 set -e
 
+# support output directory setting through -o option
+if [ -d "${outputFile}" ]; then
+	outputFile="${outputFile}/$(basename "${inputFile}")"
+fi
 if [ -z "${outputFile}" ]; then
 	outputFile="${inputFile}"
 	outputExt="${outputFile##*.}" # extension
