@@ -79,3 +79,16 @@ mprandom() {
 	[ -n "${filedate}" ] && echo "Set file date to \"${filedate}\""
 	mplayer -really-quiet ${extra_options} "$(find "${1:-.}" \! -name mplayer.conf -type f -printf '%CY-%Cm-%Cd\t%p\n' | awk -F '\t' '$1 ~ /'"${filedate}"'/ { print($2) }' | shuf -n 1 | tee /dev/stderr)"
 }
+
+# Just a joke; print a given string in a frame. Example:
+# ╔════════════╗
+# ║R.I.P koi8-r║
+# ╚════════════╝
+framed () {
+	local arg="${@:-R.I.P koi8-r}"
+	local argLen=${#arg}
+	for ((i=1; i <= ${argLen}; i++)) ; do
+		local frame+='\u2550'
+	done
+	printf %b "\u2554${frame}\u2557\n\u2551${arg}\u2551\n\u255A${frame}\u255d\n"
+}
