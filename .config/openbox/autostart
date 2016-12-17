@@ -18,3 +18,12 @@ if [ -d "${theme_dir}" ]; then
 	export GTK2_RC_FILES="${theme_dir}/gtk-2.0/gtkrc"
 	export GTK_THEME="${theme_name}"
 fi
+
+which xsnow && {
+	# December 15th
+	startDate=1215
+	# January 15th
+	endDate=115
+	curDate=$(date +%m%d)
+	[ ${curDate} -ge ${startDate} -o ${curDate} -le ${endDate} ] && xsnow &
+}
