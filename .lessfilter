@@ -1,5 +1,13 @@
 #!/bin/bash
 
+_handle_dll () {
+	_handle_exe "${1}"
+}
+
+_handle_exe () {
+	objdump -x "${1}"
+}
+
 _handle_htm () {
 	elinks --dump "${1}"
 }
