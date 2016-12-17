@@ -5,6 +5,6 @@ _currentcover() {
 
 	pushd /var/lib/mpd/music/"$(dirname "$(mpc -f %file% current)")" || exit $?
 	[ -n "${1}" ] && return
-	[ -n "${artist}" -a -n "${album}" ] && glyrc cover -a "${artist}" -b "${album}" -v 1 -w ':type:.:format:'
 	[ -f "${cache}" ] && mv "${cache}" .
+	[ -n "${artist}" -a -n "${album}" ] && glyrc cover -a "${artist}" -b "${album}" -v 1 -w ':type:.:format:' --callback 'xdg-open ":path:"'
 }
