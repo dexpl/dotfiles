@@ -1004,5 +1004,13 @@
     <application name="deluge-gtk" class="Deluge">
       <desktop>4</desktop>
     </application>
+    <application name="gl" class="MPlayer">
+    <desktop>all</desktop>
+    <focus>yes</focus>
+      <!--position force="yes">
+<x>-0</x>
+<y>0</y>
+</position-->
+    </application>
   </applications>
 </openbox_config>
