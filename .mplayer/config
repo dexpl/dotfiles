@@ -1,0 +1,23 @@
+[default]
+# Write your default config options here!
+alang=eng
+#ao=sdl
+#cache-min=1
+#cache=16384
+geometry=100%:0%
+noconsolecontrols=0
+nolirc=yes
+ontop=yes
+osdlevel=3
+prefer-ipv4=1
+slang=eng
+stop-xscreensaver=1
+sub=1
+use-filedir-conf=1
+use-filename-title=1
+utf8=1
+vo=gl
+zoom=yes
+
+[gnome-mplayer]
+msglevel=all=5
