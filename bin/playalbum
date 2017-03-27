@@ -4,13 +4,14 @@
 # -f fuzzy search (i. e. `mpc search`, not `mpc find`)
 # -r set 'random on'
 # -z search for albumartist instead of album
-while getopts ":aefrz" Option
+while getopts ":aefrtz" Option
 do
 	case $Option in
 		a) lookFor=artist ;;
 		e) resumeAfter=yes ;;
 		f) find=search ;;
 		r) random=on ;;
+		t) lookFor=title ;;
 		z) lookFor=albumartist ;;
 		\:)
 			echo "Option -${OPTARG} requires an argument, aborting" >&2
