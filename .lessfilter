@@ -1,5 +1,9 @@
 #!/bin/bash
 
+_handle_avi () {
+	mkvmerge --identify-verbose "${1}"
+}
+
 _handle_dll () {
 	_handle_exe "${1}"
 }
@@ -14,6 +18,10 @@ _handle_htm () {
 
 _handle_html () {
 	_handle_htm "${1}"
+}
+
+_handle_mkv () {
+	_handle_avi "${1}"
 }
 
 _handle_pdf () {
