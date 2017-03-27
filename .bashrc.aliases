@@ -37,20 +37,6 @@ which vim > /dev/null 2>&1 && export EDITOR=vim
 
 alias hdt="nc < /dev/null localhost 7634 | sed 's/||/|\n|/g;s/$/\n/'"
 
-# RDP
-if [[ $(hostname) =~ vmo ]]
-then
-	alias proxyrdp="env LANG=C xfreerdp -T proxy -0 -a 16 -u admin -p 221628 -k en-us -g 1152x864 --plugin cliprdr proxy & disown"
-	alias srv-sqlrdp="env LANG=C xfreerdp -T srv-sql -0 -a 16 -u admin -p 221628 -k en-us -g 1152x864 --plugin cliprdr srv-sql & disown"
-	alias vodmashrdp="env LANG=C xfreerdp -T 192.168.0.109 -0 -a 16 -d vodmash -u Администратор -p '!quarter_vodmash' -k en-us -g 1152x864 --plugin cliprdr --plugin rdpdr --data disk:distrib:/media/8050537150536D42/distrib -- 192.168.0.109 & disown"
-	alias sbkrdp="env LANG=C xfreerdp -T sbk -0 -a 16 -d sbk -u Administrator -p '!quarter_sbk' -k en-us -g 1152x864 --plugin cliprdr --plugin rdpdr --data disk:distrib:/media/8050537150536D42/distrib -- sbk & disown"
-	alias vmo-opr-prnrdp="env LANG=C xfreerdp -T vmo-opr-prn -0 -a 16 -u admin -p vmo -k en-us -g 1152x864 --plugin cliprdr vmo-opr-prn & disown"
-
-	alias distrmount="gvfs-mount 'smb://fs/distr'"
-	alias xchgmount="gvfs-mount 'smb://fs/xchg'"
-	alias workmount="gvfs-mount 'smb://proxy/work$'"
-fi
-
 mprandom() {
 #	local filedate
 	if [ $# -gt 1 ]
