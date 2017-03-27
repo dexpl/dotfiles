@@ -381,7 +381,7 @@
     </keybind>
     <keybind key="C-A-d">
       <action name="Execute">
-        <command>deluge</command>
+        <command>transgui</command>
       </action>
     </keybind>
     <keybind key="W-g">
@@ -1001,7 +1001,7 @@
     <application name="Mail" class="Thunderbird">
       <desktop>2</desktop>
     </application>
-    <application name="deluge-gtk" class="Deluge">
+    <application name="transgui" class="Transgui">
       <desktop>4</desktop>
     </application>
     <application name="gl" class="MPlayer">
