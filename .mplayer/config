@@ -1,8 +1,10 @@
 [default]
 # Write your default config options here!
+af=pan=2:1:0:0:1:1:0:0:1:1:1:1:1
 alang=eng
 #ao=sdl
-#cache-min=1
+cache-min=20
+channels=6
 #cache=16384
 geometry=100%:0%
 noconsolecontrols=0
@@ -17,6 +19,7 @@ use-filedir-conf=1
 use-filename-title=1
 utf8=1
 vo=gl
+xy=840
 zoom=yes
 
 [gnome-mplayer]
