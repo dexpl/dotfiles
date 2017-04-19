@@ -15,5 +15,5 @@ alias yumlc=yumcl
 alias yumliy="yumli -y"
 alias yumn="yum info"
 alias yumpc=yumcp
-alias yumrl="yumr --remove-leaves"
+[ "${yum}" = "dnf" ] && alias yumrl=yumr || alias yumrl="yumr --remove-leaves"
 alias yumsc=yumcs
