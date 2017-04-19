@@ -19,7 +19,7 @@ use-filedir-conf=1
 use-filename-title=1
 utf8=1
 vo=gl
-xy=840
+xy=800
 zoom=yes
 
 [gnome-mplayer]
