@@ -2,18 +2,18 @@ yum=yum
 which dnf > /dev/null 2>&1 && yum=dnf
 
 alias yumcl="${yum} list"
+alias yumlc=yumcl
+alias yuml=yumcl
 alias yumcla="${yum} changelog all"
 alias yumcp="${yum} provides"
+alias yumpc=yumcp
 alias yumcs="${yum} search"
+alias yumsc=yumcs
 alias yumcu="${yum} check-update"
 alias yumi="sudo ${yum} install"
 alias yumli="sudo ${yum} localinstall"
-alias yuml="sudo ${yum} list"
 alias yumr="sudo ${yum} remove"
 alias yumiy="yumi -y"
-alias yumlc=yumcl
 alias yumliy="yumli -y"
 alias yumn="yum info"
-alias yumpc=yumcp
 [ "${yum}" = "dnf" ] && alias yumrl=yumr || alias yumrl="yumr --remove-leaves"
-alias yumsc=yumcs
