@@ -13,7 +13,7 @@ export QT_IM_MODULE=xim
 
 # GTK theme setting. Taken from https://wiki.archlinux.org/index.php/GTK%2B#Themes
 theme_name=FlatBox-E4
-theme_dir="~/.themes/${theme_name}"
+theme_dir=~/.themes/"${theme_name}"
 if [ -d "${theme_dir}" ]; then
 	export GTK2_RC_FILES="${theme_dir}/gtk-2.0/gtkrc"
 	export GTK_THEME="${theme_name}"
