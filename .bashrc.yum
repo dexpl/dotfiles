@@ -16,4 +16,7 @@ alias yumr="sudo ${yum} remove"
 alias yumiy="yumi -y"
 alias yumliy="yumli -y"
 alias yumn="yum info"
-[ "${yum}" = "dnf" ] && alias yumrl=yumr || alias yumrl="yumr --remove-leaves"
+[ "${yum}" = "dnf" ] && {
+	alias yumrl=yumr
+	alias repoquery="dnf repoquery"
+} || alias yumrl="yumr --remove-leaves"
