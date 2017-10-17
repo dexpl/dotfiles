@@ -3,11 +3,8 @@ alias curdate='LANG=C date "+%a %b %d %Y"'
 #alias nocomments="grep -vE '^[[:space:]]*(#|;|//|\"|$)'"
 #alias nocommentss="sudo grep -vE '^[[:space:]]*(#|;|$)'"
 export PAGER=less
-export SDCV_PAGER=less
-LESS=-FR
-# TODO: check on Ubuntu
-[ -f /etc/debian_version ] && LESS="${LESS} -X"
-export LESS
+export SDCV_PAGER=${PAGER}
+export LESS=-FRX
 nocomments () {
 #	set -x
 	local nocomments_cmd='grep -vE ^[[:space:]]*(#|;|\/\/|\"|$)'
