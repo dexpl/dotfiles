@@ -5,7 +5,7 @@ if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
 	trap "kill $SSH_AGENT_PID" 0
 fi
 
-if [ -n "$SSH_AGENT_PID" -a -d ~/.ssh ]; then \
-	find > /dev/null ~/.ssh -name '*@*' \! -name '*.pub' \! -name '*.ppk' -type f \
-	 -exec ssh-add '{}' +
-fi
+#if [ -n "$SSH_AGENT_PID" -a -d ~/.ssh ]; then \
+#	find > /dev/null ~/.ssh -name '*@*' \! -name '*.pub' \! -name '*.ppk' -type f \
+#	 -exec ssh-add '{}' +
+#fi
