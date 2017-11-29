@@ -69,3 +69,6 @@ set guioptions=aegit
 "set guioptions-=m
 "set guioptions-=r
 "set guioptions-=T
+
+set splitbelow
+set splitright
