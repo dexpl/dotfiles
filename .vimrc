@@ -50,7 +50,6 @@ if has('gui_running')
 	"colorscheme morning
 else
 	" Non-GUI (terminal) colors
-	colorscheme elflord
 	"colorscheme elflord
 	if &diff
 		colorscheme murphy
