@@ -50,7 +50,6 @@ if has('gui_running')
 	"colorscheme morning
 else
 	" Non-GUI (terminal) colors
-	colorscheme elflord
 	"colorscheme elflord
 	if &diff
 		colorscheme murphy
@@ -69,3 +68,6 @@ set guioptions=aegit
 "set guioptions-=m
 "set guioptions-=r
 "set guioptions-=T
+
+set splitbelow
+set splitright
