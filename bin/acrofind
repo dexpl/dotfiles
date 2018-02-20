@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Acronym expansion finder
+# Requires wget, xml2, grep, cut, less
+
+# TODO: check whether there's actually exactly the only command line argument
+#url=http://acronyms.silmaril.ie/cgi-bin/uncgi/xaa?$1
+url=http://acronyms.silmaril.ie/cgi-bin/xaa?$1
+wget -qO- ${url} | xml2 | grep -e @nym -e expan -e comment[^$] | cut -d = -f 2 | less -FX
