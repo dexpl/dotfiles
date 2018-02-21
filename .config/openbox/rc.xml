@@ -407,11 +407,6 @@
         <command>sh -c 'notify-send Sound "$(amixer sset Master 1%-)"'</command>
       </action>
     </keybind>
-    <keybind key="W-Return">
-      <action name="Execute">
-        <command>sh -c 'notify-send Sound "$(amixer sget Master)"'</command>
-      </action>
-    </keybind>
     <keybind key="W-a">
       <action name="Execute">
         <command>gajim-remote change_status away</command>
@@ -494,6 +489,11 @@
         <execute>gnome-screensaver-command -a</execute>
 				-->
         <execute>xdg-screensaver activate</execute>
+      </action>
+    </keybind>
+    <keybind key="W-Return">
+      <action name="ShowMenu">
+        <menu>client-list-combined-menu</menu>
       </action>
     </keybind>
     <keybind key="W-Multi_key">
