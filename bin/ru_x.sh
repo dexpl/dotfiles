@@ -7,6 +7,8 @@
 #setxkbmap -option
 setxkbmap -layout us,ru
 setxkbmap -option grp_led:scroll,terminate:ctrl_alt_bksp,compose:rwin
+# For notebook keyboards lacking rwin
+setxkbmap -option compose:paus
 setxkbmap -option grp:shifts_toggle
 setxkbmap -option grp:shift_caps_toggle
 setxkbmap -option keypad:pointerkeys
