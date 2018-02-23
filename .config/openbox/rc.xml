@@ -491,6 +491,11 @@
         <execute>xdg-screensaver activate</execute>
       </action>
     </keybind>
+    <keybind key="W-0">
+      <action name="Execute">
+        <command>gajim-remote toggle_roster_appearance</command>
+      </action>
+    </keybind>
     <keybind key="W-Return">
       <action name="ShowMenu">
         <menu>client-list-combined-menu</menu>
