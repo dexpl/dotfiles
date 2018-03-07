@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Lock screen on hibernation
+Exec=xss-lock -- xdg-screensaver lock
