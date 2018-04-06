@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=MPD pause on screensaver
+Exec=mpd_pause_on_screensaver.sh
