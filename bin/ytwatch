@@ -46,7 +46,7 @@ media_filenames=""
 for url in ${urls} ; do
 	original_url=${url%%&*}
 # https://github.com/rg3/youtube-dl/issues/7456#issuecomment-155783819
-	readarray ar <<< $(youtube-dl -f best --get-url --get-filename -n "${original_url}")
+	readarray ar <<< $(youtube-dl --get-url --get-filename -n "${original_url}")
 	media_url="${ar[0]}"
 	media_filename="${ar[1]}"
 	[ -z "${media_url}" -o -z "${media_filename}" ] && continue
