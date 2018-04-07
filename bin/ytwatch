@@ -2,10 +2,8 @@
 
 [ -n "${YTWATCH_DEBUG}" ] && set -x
 
-[ $# -gt 0 ] || {
-	echo Too few arguments >&2
-	exit 1
-}
+urls=$@
+[ -z "${urls}" ] && urls="$(xclip -o)"
 
 trap _trap_handler INT TERM EXIT
 
@@ -45,7 +43,7 @@ mplayes_opts="-really-quiet"
 mplayer="mplayer ${mplayes_opts}"
 media_filenames=""
 
-for url in $@ ; do
+for url in ${urls} ; do
 	original_url=${url%%&*}
 # https://github.com/rg3/youtube-dl/issues/7456#issuecomment-155783819
 	readarray ar <<< $(youtube-dl -f best --get-url --get-filename -n "${original_url}")
