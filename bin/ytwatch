@@ -43,17 +43,18 @@ mplayes_opts="-really-quiet"
 mplayer="mplayer ${mplayes_opts}"
 media_filenames=""
 
-for url in ${urls} ; do
-	original_url=${url%%&*}
-# https://github.com/rg3/youtube-dl/issues/7456#issuecomment-155783819
-	readarray ar <<< $(youtube-dl --get-url --get-filename -n "${original_url}")
-	media_url="${ar[0]}"
-	media_filename="${ar[1]}"
-	[ -z "${media_url}" -o -z "${media_filename}" ] && continue
-#	wget -ct0 -O "${playlistdir}/${media_filename}" "${media_url}"
-  youtube-dl --continue --output "${playlistdir}/${media_filename}" --retries infinite "${media_url}"
-	media_filenames="${media_filenames}${media_filename}"
-done
+#for url in ${urls} ; do
+#	original_url=${url%%&*}
+## https://github.com/rg3/youtube-dl/issues/7456#issuecomment-155783819
+#	readarray ar <<< $(youtube-dl --get-url --get-filename -n "${original_url}")
+#	media_url="${ar[0]}"
+#	media_filename="${ar[1]}"
+#	[ -z "${media_url}" -o -z "${media_filename}" ] && continue
+##	wget -ct0 -O "${playlistdir}/${media_filename}" "${media_url}"
+#  youtube-dl --continue --output "${playlistdir}/${media_filename}" --retries infinite "${media_url}"
+#	media_filenames="${media_filenames}${media_filename}"
+#done
+youtube-dl --output "${playlistdir}/%(title)s.%(ext)s" ${urls}
 
 [ -z "${media_filenames}" ] && exit 1
 play_pause 0 && save_volume && ${mplayer} ${playlistdir}/* && restore_volume && play_pause 1
