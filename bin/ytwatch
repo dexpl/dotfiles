@@ -56,5 +56,5 @@ media_filenames=""
 #done
 youtube-dl --output "${playlistdir}/%(title)s.%(ext)s" ${urls}
 
-[ -z "${media_filenames}" ] && exit 1
+#[ -z "${media_filenames}" ] && exit 1
 play_pause 0 && save_volume && ${mplayer} ${playlistdir}/* && restore_volume && play_pause 1
