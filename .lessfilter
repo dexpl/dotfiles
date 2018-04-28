@@ -24,6 +24,10 @@ _handle_html () {
 	_handle_htm "${1}"
 }
 
+_handle_md () {
+	markdown "${1}" | elinks --dump
+}
+
 _handle_mkv () {
 	_handle_avi "${1}"
 }
