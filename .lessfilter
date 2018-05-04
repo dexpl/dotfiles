@@ -44,6 +44,14 @@ _handle_rar () {
 	fi
 }
 
+_handle_tar () {
+	tar -tf "${1}"
+}
+
+_handle_txt () {
+	enconv < "${1}"
+}
+
 _handle_xls () {
 	xls2csv "${1}"
 }
