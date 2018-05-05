@@ -44,6 +44,10 @@ _handle_rar () {
 	fi
 }
 
+_handle_rtf () {
+	unrtf "${1}" | elinks --dump
+}
+
 _handle_tar () {
 	tar -tf "${1}"
 }
