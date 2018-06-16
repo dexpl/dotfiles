@@ -60,6 +60,7 @@ if !has('gui_running')
 	set paste
 endif
 
+set guifont=Monospace\ 9
 set guioptions=aegit
 
 "set guioptions-=b
