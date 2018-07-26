@@ -72,3 +72,6 @@ set guioptions=aegit
 
 set splitbelow
 set splitright
+
+filetype plugin indent on
+autocmd FileType perl setlocal equalprg=perltidy\ -st
