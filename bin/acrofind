@@ -1,9 +1,14 @@
-#!/bin/sh
+#!/bin/bash
 
 # Acronym expansion finder
-# Requires wget, xml2, grep, cut, less
+# Requires curl, xpath
+# TODO rewrite on Perl entirely since it requires xpath already
 
-# TODO: check whether there's actually exactly the only command line argument
-#url=http://acronyms.silmaril.ie/cgi-bin/uncgi/xaa?$1
-url=http://acronyms.silmaril.ie/cgi-bin/xaa?$1
-wget -qO- ${url} | xml2 | grep -e @nym -e expan -e comment[^$] | cut -d = -f 2 | less -FX
+url=http://acronyms.silmaril.ie/cgi-bin/xaa?
+counter=0
+for abbr in $@ ; do
+	[ $counter -gt 0 ] && echo
+	echo ${abbr}
+	curl -s ${url}${abbr} | xpath -e '//acro/expan/text()' -q
+	((counter++))
+done
