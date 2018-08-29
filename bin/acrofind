@@ -5,10 +5,12 @@
 # TODO rewrite on Perl entirely since it requires xpath already
 
 url=http://acronyms.silmaril.ie/cgi-bin/xaa?
+xpath='/acronym/found/acro/expan/text()'
 counter=0
 for abbr in $@ ; do
 	[ $counter -gt 0 ] && echo
 	echo ${abbr}
-	curl -s ${url}${abbr} | xpath -e '//acro/expan/text()' -q
+	curl -s ${url}${abbr} | xpath -e ${xpath} -q
 	((counter++))
 done
+unset counter
