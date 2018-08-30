@@ -14,7 +14,10 @@ my $counter = 0;
 foreach (@ARGV) {
     my $re = get("$url$_");
     next unless defined $re;
+    my @nodes = XML::XPath->new( xml => $re )->findnodes($xpath);
+    next unless @nodes;
+    print '' if $counter;
     print;
-    print $_->string_value foreach XML::XPath->new( xml => $re )->findnodes($xpath);
+    print $_->string_value foreach @nodes;
     $counter++;
 }
