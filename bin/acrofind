@@ -1,16 +1,23 @@
-#!/bin/bash
+#!/usr/bin/perl -l
 
-# Acronym expansion finder
-# Requires curl, xpath
-# TODO rewrite on Perl entirely since it requires xpath already
+use strict;
+use warnings;
 
-url=http://acronyms.silmaril.ie/cgi-bin/xaa?
-xpath='/acronym/found/acro/expan/text()'
-counter=0
-for abbr in $@ ; do
-	[ $counter -gt 0 ] && echo
-	echo ${abbr}
-	curl -s ${url}${abbr} | xpath -e ${xpath} -q
-	((counter++))
-done
-unset counter
+use LWP::Simple;
+use XML::XPath;
+
+die "Usage: $0 abbr [abbr]..." unless @ARGV;
+
+my $url     = 'http://acronyms.silmaril.ie/cgi-bin/xaa?';
+my $xpath   = '/acronym/found/acro/expan/text()';
+my $counter = 0;
+foreach (@ARGV) {
+    my $re = get("$url$_");
+    next unless defined $re;
+    my @nodes = XML::XPath->new( xml => $re )->findnodes($xpath);
+    next unless @nodes;
+    print '' if $counter;
+    print;
+    print $_->string_value foreach @nodes;
+    $counter++;
+}
