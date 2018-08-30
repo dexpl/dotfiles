@@ -20,10 +20,9 @@ foreach (@ARGV) {
     print;
     map {
         my $node = $_;
-        my @val  = map { $node->findvalue("$_/text()") } ( 'expan', 'comment' );
-        my $def  = $val[0];
-        $def .= " /* $val[1] */" if $val[1];
-        print $def;
+        my @val = map { $node->findvalue("$_/text()") } ( 'expan', 'comment' );
+        my $comment = $val[1] ? " /* $val[1] */" : '';
+        print $val[0] . $comment;
     } @acros;
     $counter++;
 }
