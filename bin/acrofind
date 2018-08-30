@@ -18,6 +18,6 @@ foreach (@ARGV) {
     next unless @nodes;
     print '' if $counter;
     print;
-    print $_->string_value foreach @nodes;
+    map { print $_->string_value } @nodes;
     $counter++;
 }
