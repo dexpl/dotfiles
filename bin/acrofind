@@ -12,18 +12,16 @@ my $url     = 'http://acronyms.silmaril.ie/cgi-bin/xaa?';
 my $acro    = '/acronym/found/acro';
 my $counter = 0;
 foreach (@ARGV) {
-    my $re = get("$url$_");
-    next unless defined $re;
-    my @acros = XML::XPath->new( xml => $re )->findnodes($acro);
+    # <e></e> is just en empty valid xml
+    my @acros =
+      XML::XPath->new( xml => get("$url$_") || '<e></e>' )->findnodes($acro);
     next unless @acros;
     print '' if $counter;
     print;
     map {
         my $node = $_;
         my @val = map { $node->findvalue("$_/text()") } ( 'expan', 'comment' );
-#        my $comment = $val[1] ? " /* $val[1] */" : '';
-#        print $val[0] . $comment;
-print @{[$val[0] . ($val[1] ? " /* $val[1] */" : '')]};
+        print @{ [ $val[0] . ( $val[1] ? " /* $val[1] */" : '' ) ] };
     } @acros;
     $counter++;
 }
