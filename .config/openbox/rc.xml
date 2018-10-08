@@ -423,12 +423,9 @@
       </action>
     </keybind>
     <keybind key="W-t">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Terminal</name>
-        </startupnotify>
-        <command>lilyterm</command>
+      <action name="MoveResizeTo">
+				<x>center</x>
+				<y>center</y>
       </action>
     </keybind>
     <keybind key="W-v">
