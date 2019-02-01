@@ -48,7 +48,7 @@ _EOF
 
 ls_themes () {
 	themeDirs="/usr/share/themes ${HOME}/.themes"
-	find ${themeDirs} -name gtk-3.0 -type d | awk -F / '{ print($(NF-1)) }' | sort | ${PAGER:-more}
+	find -L ${themeDirs} -name gtk-3.0 -type d | awk -F / '{ print($(NF-1)) }' | sort | ${PAGER:-more}
 }
 
 while getopts ":d:hlps" opt
