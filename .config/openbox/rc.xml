@@ -488,6 +488,11 @@
         <execute>xdg-screensaver activate</execute>
       </action>
     </keybind>
+    <keybind key="W-u">
+      <action name="execute">
+        <execute>pkill -USR1 -f weather</execute>
+      </action>
+    </keybind>
     <keybind key="W-0">
       <action name="Execute">
         <command>gajim-remote toggle_roster_appearance</command>
@@ -999,6 +1004,9 @@
         <x>-0</x>
         <y>-0</y>
       </position>
+    </application>
+    <application name="telegram-desktop" class="TelegramDesktop">
+      <desktop>4</desktop>
     </application>
     <application name="Mail" class="Thunderbird">
       <desktop>2</desktop>
