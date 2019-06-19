@@ -5,7 +5,7 @@ _handle_ac3 () {
 }
 
 _handle_avi () {
-	mkvmerge --identify-verbose "${1}"
+	midentify "${1}"
 }
 
 _handle_dll () {
