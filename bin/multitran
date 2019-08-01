@@ -1,6 +1,6 @@
 #!/bin/sh
 
-declare -r en_url='http://www.multitran.ru/c/M.exe?l1=1&l2=2&s='
+declare -r en_url='http://www.multitran.ru/m.exe?l1=1&l2=2&s='
 
 [ $# -eq 0 ] && {
 	echo Too few arguments >&2
