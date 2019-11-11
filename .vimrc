@@ -75,3 +75,5 @@ set splitright
 
 filetype plugin indent on
 autocmd FileType perl setlocal equalprg=perltidy\ -ce\ -st
+
+syntax on
