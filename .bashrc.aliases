@@ -75,3 +75,8 @@ framed () {
 	done
 	printf %b "\u2554${frame}\u2557\n\u2551${arg}\u2551\n\u255A${frame}\u255d\n"
 }
+
+[ -z "${LC_MESSAGES}" ] && export LC_MESSAGES=C
+export PROMPT_COMMAND="history -a ; history -c ; history -r ; ${PROMPT_COMMAND}"
+# I hate Debian!
+type -t ll || alias ll='ls -Al'
