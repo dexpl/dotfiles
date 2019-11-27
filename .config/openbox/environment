@@ -1,0 +1,5 @@
+# vim: ft=sh
+GTK_IM_MODULE=xim
+# Qt cannot into XCompose unless QT_IM_MODULE=xim is set
+QT_IM_MODULE=xim
+# TODO move theme_name here from autostart

@@ -1,3 +1,4 @@
+# vim: ft=sh
 #xsetroot -solid "#ededed" &
 #xsetroot -solid "#d4d4d4" &
 xsetroot -solid "#e4e4e4" &
@@ -5,9 +6,9 @@ xsetroot -solid "#e4e4e4" &
 # setxkbmap follows
 which ru_x.sh && ru_x.sh
 
-export GTK_IM_MODULE=xim
-# Qt cannot into XCompose unless QT_IM_MODULE=xim is set
-export QT_IM_MODULE=xim
+#export GTK_IM_MODULE=xim
+## Qt cannot into XCompose unless QT_IM_MODULE=xim is set
+#export QT_IM_MODULE=xim
 
 #env | sort
 
