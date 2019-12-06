@@ -1,7 +1,3 @@
-alias clups='ps ufp `pgrep -d " " -G clusers`'
-alias curdate='LANG=C date "+%a %b %d %Y"'
-#alias nocomments="grep -vE '^[[:space:]]*(#|;|//|\"|$)'"
-#alias nocommentss="sudo grep -vE '^[[:space:]]*(#|;|$)'"
 export PAGER=less
 export SDCV_PAGER=${PAGER}
 export LESS=-FRX
@@ -16,11 +12,6 @@ nocomments () {
 }
 
 alias qdn2dc="hostname -d | sed 's/^/dc=/ ; s/\./,dc=/g'"
-alias sedit="EDITOR=$EDITOR sudoedit"
-alias suldapadd='ldapadd -D '\''uid=root,ou=People,dc=clust,dc=vsu,dc=ru'\'''
-alias suldapvi='ldapvi -D '\''uid=root,ou=People,dc=clust,dc=vsu,dc=ru'\'''
-alias vimless=/usr/share/vim/vim74/macros/less.sh
-alias rts="gvim --remote-tab-silent"
 # yum
 if [ -r ~/.bashrc.yum ]; then
 	. ~/.bashrc.yum
@@ -28,9 +19,13 @@ fi
 
 alias isvirt="grep -E --color=always '(vmx|svm)' /proc/cpuinfo"
 
-#export GREP_OPTIONS="--color=auto"
 alias grep="grep --color=auto"
-which vim > /dev/null 2>&1 && export EDITOR=vim
+
+which vim > /dev/null 2>&1 && {
+	export EDITOR=vim
+	for vimless in /usr/share/vim/vim*/macros/less.sh; do alias vimless=${vimless}; done
+	which gvim && alias rts="gvim --remote-tab-silent"
+}
 
 alias hdt="nc < /dev/null localhost 7634 | sed 's/||/|\n|/g;s/$/\n/'"
 
