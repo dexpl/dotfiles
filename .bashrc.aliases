@@ -2,12 +2,11 @@ export PAGER=less
 export SDCV_PAGER=${PAGER}
 export LESS=-FRX
 
-export GREP_OPTIONS='--color=auto'
-
 [ -z "${LC_MESSAGES}" ] && export LC_MESSAGES=C
 
 export PROMPT_COMMAND="history -a ; history -c ; history -r ; ${PROMPT_COMMAND}"
 
+alias grep='grep --color=auto'
 alias hdt="nc < /dev/null localhost 7634 | sed 's/||/|\n|/g;s/$/\n/'"
 alias isvirt="grep --color=always -e svm -e vmx /proc/cpuinfo"
 alias qdn2dc="hostname -d | sed 's/^/dc=/;s/\./,dc=/g'"
