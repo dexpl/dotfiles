@@ -1,6 +1,27 @@
 export PAGER=less
 export SDCV_PAGER=${PAGER}
 export LESS=-FRX
+
+export GREP_OPTIONS='--color=auto'
+
+[ -z "${LC_MESSAGES}" ] && export LC_MESSAGES=C
+
+export PROMPT_COMMAND="history -a ; history -c ; history -r ; ${PROMPT_COMMAND}"
+
+alias hdt="nc < /dev/null localhost 7634 | sed 's/||/|\n|/g;s/$/\n/'"
+alias isvirt="grep --color=always -e svm -e vmx /proc/cpuinfo"
+alias qdn2dc="hostname -d | sed 's/^/dc=/;s/\./,dc=/g'"
+
+type -p vim > /dev/null && {
+	export EDITOR=vim
+	export VISUAL=vim
+	for vimless in /usr/share/vim/vim*/macros/less.sh; do alias vimless=${vimless}; done
+	type gvim > /dev/null && alias rts="gvim --remote-tab-silent"
+}
+
+# I hate Debian!
+type -p ll || alias ll='ls -Al'
+
 nocomments () {
 #	set -x
 	local nocomments_cmd='grep -vE ^[[:space:]]*(#|;|\/\/|\"|$)'
@@ -10,25 +31,6 @@ nocomments () {
 	fi
 		${nocomments_cmd} | less
 }
-
-alias qdn2dc="hostname -d | sed 's/^/dc=/ ; s/\./,dc=/g'"
-# yum
-if [ -r ~/.bashrc.yum ]; then
-	. ~/.bashrc.yum
-fi
-
-alias isvirt="grep -E --color=always '(vmx|svm)' /proc/cpuinfo"
-
-alias grep="grep --color=auto"
-
-type -p vim > /dev/null && {
-	export EDITOR=vim
-	export VISUAL=vim
-	for vimless in /usr/share/vim/vim*/macros/less.sh; do alias vimless=${vimless}; done
-	type gvim > /dev/null && alias rts="gvim --remote-tab-silent"
-}
-
-alias hdt="nc < /dev/null localhost 7634 | sed 's/||/|\n|/g;s/$/\n/'"
 
 mprandom() {
 #	local filedate
@@ -71,8 +73,3 @@ framed () {
 	done
 	printf %b "\u2554${frame}\u2557\n\u2551${arg}\u2551\n\u255A${frame}\u255d\n"
 }
-
-[ -z "${LC_MESSAGES}" ] && export LC_MESSAGES=C
-export PROMPT_COMMAND="history -a ; history -c ; history -r ; ${PROMPT_COMMAND}"
-# I hate Debian!
-type -p ll || alias ll='ls -Al'
