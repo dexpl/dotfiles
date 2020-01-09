@@ -21,11 +21,11 @@ alias isvirt="grep -E --color=always '(vmx|svm)' /proc/cpuinfo"
 
 alias grep="grep --color=auto"
 
-which vim > /dev/null 2>&1 && {
+type -p vim > /dev/null && {
 	export EDITOR=vim
 	export VISUAL=vim
 	for vimless in /usr/share/vim/vim*/macros/less.sh; do alias vimless=${vimless}; done
-	which gvim > /dev/null 2>&1 && alias rts="gvim --remote-tab-silent"
+	type gvim > /dev/null && alias rts="gvim --remote-tab-silent"
 }
 
 alias hdt="nc < /dev/null localhost 7634 | sed 's/||/|\n|/g;s/$/\n/'"
@@ -75,4 +75,4 @@ framed () {
 [ -z "${LC_MESSAGES}" ] && export LC_MESSAGES=C
 export PROMPT_COMMAND="history -a ; history -c ; history -r ; ${PROMPT_COMMAND}"
 # I hate Debian!
-type -t ll || alias ll='ls -Al'
+type -p ll || alias ll='ls -Al'
