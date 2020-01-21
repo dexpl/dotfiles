@@ -1,3 +1,6 @@
 [submodule "vim-mikrotik"]
 	path = vim-mikrotik
 	url = https://github.com/zainin/vim-mikrotik
+[submodule "vim-ps1"]
+	path = vim-ps1
+	url = http://github.com/PProvost/vim-ps1
