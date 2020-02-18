@@ -15,7 +15,7 @@
 (gtk_accel_path "<Actions>/terminal-window/new-tab" "<Primary>t")
 (gtk_accel_path "<Actions>/terminal-window/new-window" "<Primary>n")
 (gtk_accel_path "<Actions>/terminal-window/next-tab" "<Alt>Right")
-(gtk_accel_path "<Actions>/terminal-window/prev-tab" "<Alt>Right")
+(gtk_accel_path "<Actions>/terminal-window/prev-tab" "<Alt>Left")
 (gtk_accel_path "<Actions>/terminal-window/toggle-menubar" "F10")
 ; (gtk_accel_path "<Actions>/terminal-window/about" "")
 ; (gtk_accel_path "<Actions>/terminal-window/close-other-tabs" "")
