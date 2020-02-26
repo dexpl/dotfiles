@@ -15,7 +15,7 @@ type -p vim > /dev/null && {
 	export EDITOR=vim
 	export VISUAL=vim
 	for vimless in /usr/share/vim/vim*/macros/less.sh; do alias vimless=${vimless}; done
-	type gvim > /dev/null && alias rts="gvim --remote-tab-silent"
+	type -p gvim > /dev/null && alias rts="gvim --remote-tab-silent"
 }
 
 # I hate Debian!
