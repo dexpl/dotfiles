@@ -3,7 +3,9 @@
 [ -n "${YTWATCH_DEBUG}" ] && set -x
 
 urls=$@
+# TODO try to HEAD selections (both primary and clipboard) and skip non-urls
 [ -z "${urls}" ] && urls="$(xclip -o)"
+[ -z "${urls}" ] && urls="$(xclip -o -selection clipboard)"
 
 trap _trap_handler INT TERM EXIT
 
