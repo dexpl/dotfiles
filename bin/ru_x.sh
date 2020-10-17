@@ -9,6 +9,8 @@ setxkbmap -layout us,ru
 setxkbmap -option grp_led:scroll,terminate:ctrl_alt_bksp,compose:rwin
 # For notebook keyboards lacking rwin
 setxkbmap -option compose:paus
+# For notebook keyboards lacking rwin and paus
+setxkbmap -option compose:prsc
 setxkbmap -option grp:shifts_toggle
 setxkbmap -option grp:shift_caps_toggle
 setxkbmap -option keypad:pointerkeys
