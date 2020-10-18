@@ -239,6 +239,11 @@
         <desktop>4</desktop>
       </action>
     </keybind>
+    <keybind key="W-F5">
+      <action name="Desktop">
+        <desktop>5</desktop>
+      </action>
+    </keybind>
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
@@ -376,7 +381,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>gmrun</command>
+        <command>xfce4-appfinder -c</command>
       </action>
     </keybind>
     <keybind key="C-A-d">
@@ -430,12 +435,12 @@
     </keybind>
     <keybind key="W-v">
       <action name="Execute">
-        <command>env LANG=C tsclient</command>
+        <command>remmina</command>
       </action>
     </keybind>
     <keybind key="A-F2">
       <action name="execute">
-        <execute>gnome-panel-control --run-dialog</execute>
+        <execute>xfce4-panel -p</execute>
       </action>
     </keybind>
     <keybind key="W-space">
