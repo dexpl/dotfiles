@@ -12,7 +12,7 @@
 (gtk_accel_path "<Actions>/terminal-window/goto-tab-9" "<Alt>9")
 (gtk_accel_path "<Actions>/terminal-window/move-tab-left" "<Primary>Left")
 (gtk_accel_path "<Actions>/terminal-window/move-tab-right" "<Primary>Right")
-(gtk_accel_path "<Actions>/terminal-window/new-tab" "<Primary>t")
+(gtk_accel_path "<Actions>/terminal-window/new-tab" "<Primary><Shift>t")
 ;(gtk_accel_path "<Actions>/terminal-window/new-window" "<Primary>n")
 (gtk_accel_path "<Actions>/terminal-window/next-tab" "<Alt>Right")
 (gtk_accel_path "<Actions>/terminal-window/prev-tab" "<Alt>Left")
