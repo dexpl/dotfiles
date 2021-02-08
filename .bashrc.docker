@@ -1,0 +1,7 @@
+docker=$(which docker 2>/dev/null)
+[ -z "${docker}" ] && docker=$(which podman 2>/dev/null)
+[ -z "${docker}" ] && return 0
+
+getDockerContainerIP () {
+	${docker} inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "${1:?No container name given}"
+}
