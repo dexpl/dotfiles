@@ -78,5 +78,5 @@ autocmd FileType perl setlocal equalprg=perltidy\ -ce\ -st
 
 syntax on
 
-g:extra_whitespace_ignored_filetypes = ['markdown']
+let g:extra_whitespace_ignored_filetypes = ['markdown']
 autocmd FileType markdown setlocal list
