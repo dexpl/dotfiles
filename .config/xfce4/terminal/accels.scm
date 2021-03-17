@@ -30,7 +30,7 @@
 ; (gtk_accel_path "<Actions>/terminal-window/file-menu" "")
 ; (gtk_accel_path "<Actions>/terminal-window/fullscreen" "F11")
 ; (gtk_accel_path "<Actions>/terminal-window/help-menu" "")
-; (gtk_accel_path "<Actions>/terminal-window/last-active-tab" "")
+(gtk_accel_path "<Actions>/terminal-window/last-active-tab" "<Alt>Down")
 ; (gtk_accel_path "<Actions>/terminal-window/paste" "<Primary><Shift>v")
 ; (gtk_accel_path "<Actions>/terminal-window/paste-selection" "")
 ; (gtk_accel_path "<Actions>/terminal-window/preferences" "")
