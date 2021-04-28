@@ -8,7 +8,7 @@ export PROMPT_COMMAND="history -a ; history -c ; history -r ; ${PROMPT_COMMAND}"
 
 alias grep='grep --color=auto'
 alias hdt="nc < /dev/null localhost 7634 | sed 's/||/|\n|/g;s/$/\n/'"
-alias isvirt="grep --color=always -e svm -e vmx /proc/cpuinfo"
+alias isvirt="grep --color=always -e svm -e vmx -w /proc/cpuinfo"
 alias qdn2dc="hostname -d | sed 's/^/dc=/;s/\./,dc=/g'"
 
 type -p vim > /dev/null && {
@@ -71,4 +71,9 @@ framed () {
 		local frame+='\u2550'
 	done
 	printf %b "\u2554${frame}\u2557\n\u2551${arg}\u2551\n\u255A${frame}\u255d\n"
+}
+
+# Another joke; print friday the 13s in given (default: current) year
+fr13 () {
+	env LC_ALL=C cal -vy ${1} | grep -e '^\s' -e ^Fr | grep -B 1 --color=auto -e 13
 }
