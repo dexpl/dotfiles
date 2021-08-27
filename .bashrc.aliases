@@ -1,6 +1,7 @@
 export PAGER=less
 export SDCV_PAGER=${PAGER}
 export LESS=-FRX
+export GOOGLER_COLORS=bcdgxy
 
 [ -z "${LC_MESSAGES}" ] && export LC_MESSAGES=C
 
