@@ -25,11 +25,14 @@ type -p ll || alias ll='ls -Al'
 nocomments () {
 #	set -x
 	local nocomments_cmd='grep -vE ^[[:space:]]*(#|;|\/\/|\"|$)'
-	if [ -n "$1" ]; then
-		nocomments_cmd="${nocomments_cmd} ${1}"
-		[ -r "$1" ] || nocomments_cmd="sudo ${nocomments_cmd}"
-	fi
+	for file in "$@"
+	do
+		if [ -n "${file}" ]; then
+			nocomments_cmd="${nocomments_cmd} ${file}"
+			[ -r "${file}" ] || nocomments_cmd="sudo ${nocomments_cmd}"
+		fi
 		${nocomments_cmd} | less
+	done
 }
 
 mprandom() {
