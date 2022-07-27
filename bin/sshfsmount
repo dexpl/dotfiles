@@ -5,17 +5,17 @@
   exit 1
 }
 
-MOUNTER=${MOUNTER:-sshfs}
+mounter=${MOUNTER:-sshfs}
 
-which $MOUNTER 2>&1 > /dev/null || {
-  echo "$MOUNTER program is required but not found" >&2
+which $mounter 2>&1 > /dev/null || {
+  echo "$mounter program is required but not found" >&2
   exit 2
 }
 
-SSHFSNAME=$1
-MOUNTDIR=${MOUNTDIR:-~/media}
-MOUNTPOINT="${MOUNTDIR}/${SSHFSNAME%:*}" # user@host:/path → ~/media/user@host
-[ -d "${MOUNTPOINT}" ] || mkdir "${MOUNTPOINT}" || exit $?
+sshfsname=$1
+mountdir=${MOUNTDIR:-~/media}
+mountpoint="${mountdir}/${sshfsname%:*}" # user@host:/path → ~/media/user@host
+[ -d "${mountpoint}" ] || mkdir "${mountpoint}" || exit $?
 
-# TODO check to see whether fuse.conf permits allow_other
-$MOUNTER "$SSHFSNAME" "$MOUNTPOINT" -o allow_other
+grep -qe ^user_allow_other /etc/fuse.conf && mount_opts='-o allow_other'
+$mounter "$sshfsname" "$mountpoint" ${mount_opts}
