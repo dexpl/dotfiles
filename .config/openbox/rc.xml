@@ -942,6 +942,9 @@
     <application name="telegram-desktop" class="TelegramDesktop">
       <desktop>4</desktop>
     </application>
+    <application name="Mail" class="thunderbird">
+      <desktop>2</desktop>
+    </application>
     <application name="Mail" class="Thunderbird">
       <desktop>2</desktop>
     </application>
