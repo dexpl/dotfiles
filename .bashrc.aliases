@@ -5,7 +5,7 @@ export GOOGLER_COLORS=bcdgxy
 
 [ -z "${LC_MESSAGES}" ] && export LC_MESSAGES=C
 
-export PROMPT_COMMAND="history -a ; history -c ; history -r ; ${PROMPT_COMMAND}"
+export PROMPT_COMMAND="history -a; history -c; history -r"
 
 alias grep='grep --color=auto'
 alias hdt="nc < /dev/null localhost 7634 | sed 's/||/|\n|/g;s/$/\n/'"
