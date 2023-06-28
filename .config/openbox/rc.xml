@@ -951,13 +951,17 @@
     <application name="transgui" class="Transgui">
       <desktop>4</desktop>
     </application>
-    <application name="gl" class="MPlayer">
-    <desktop>all</desktop>
-    <focus>yes</focus>
-      <!--position force="yes">
-<x>-0</x>
-<y>0</y>
-</position-->
+    <!--application name="gl" class="MPlayer"-->
+    <application class="MPlayer">
+			<desktop>all</desktop>
+			<focus>yes</focus>
+			<!--position force="yes">
+				<x>-0</x>
+				<y>0</y>
+			</position-->
+    </application>
+    <application class="MPlayer" title="MPlayer - Video">
+			<layer>above</layer>
     </application>
     <application name="microsoft teams - preview" role="browser-window">
       <desktop>4</desktop>
