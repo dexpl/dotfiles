@@ -65,11 +65,11 @@ mprandom() {
 }
 
 # Just a joke; print a given string in a frame. Example:
-# ╔════════════╗
-# ║R.I.P koi8-r║
-# ╚════════════╝
+# ╔══════════════╗
+# ║R.I.P., koi8-r║
+# ╚══════════════╝
 framed () {
-	local arg="${@:-R.I.P koi8-r}"
+	local arg="${@:-R.I.P., koi8-r}"
 	local argLen=${#arg}
 	for ((i=1; i <= ${argLen}; i++)) ; do
 		local frame+='\u2550'
