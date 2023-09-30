@@ -482,7 +482,7 @@
         <!--
         <execute>gnome-screensaver-command -l</execute>
 				-->
-        <execute>xdg-screensaver lock</execute>
+        <execute>xfce4-screensaver-command -l</execute>
       </action>
     </keybind>
     <keybind key="W-s">
@@ -490,7 +490,7 @@
         <!--
         <execute>gnome-screensaver-command -a</execute>
 				-->
-        <execute>xdg-screensaver activate</execute>
+        <execute>xfce4-screensaver-command -a</execute>
       </action>
     </keybind>
     <keybind key="W-u">
